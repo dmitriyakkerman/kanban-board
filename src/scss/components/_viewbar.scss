@@ -1,0 +1,69 @@
+.viewbar {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  padding: 10px;
+
+  &__item {
+    width: 35px;
+    margin: 0 10px;
+
+    a {
+
+      span {
+        transition: $transition-primary;
+      }
+    }
+
+    &:first-child {
+
+      a {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        height: 100%;
+
+        span {
+          display: inline-block;
+          width: 7px;
+          height: 100%;
+          background: black;
+        }
+      }
+    }
+
+    &:nth-child(2) {
+
+      a {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        span {
+          display: inline-block;
+          width: 100%;
+          height: 7.5px;
+          background: black;
+
+          &:nth-child(1),
+          &:nth-child(2),
+          &:nth-child(3) {
+            margin-bottom: 2px;
+          }
+        }
+      }
+    }
+
+    &.active {
+
+      a {
+
+        span {
+          background: #a696ff;
+        }
+      }
+    }
+  }
+}

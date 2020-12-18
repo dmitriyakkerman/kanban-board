@@ -1,0 +1,6 @@
+.appear-enter-active, .appear-leave-active {
+  transition: opacity .3s;
+}
+.appear-enter, .appear-leave-to {
+  opacity: 0;
+}

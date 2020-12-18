@@ -1,0 +1,36 @@
+.dashboard {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+
+  &__inner {
+    margin: 50px;
+    transition: $transition-primary;
+
+    &.horizontal {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+
+      .board {
+
+        .tasks {
+          min-height: 80px;
+        }
+      }
+    }
+
+    &.vertical {
+      display: flex;
+      flex-direction: column;
+
+      .board {
+
+        &:not(:last-child) {
+          margin-bottom: 50px;
+        }
+      }
+    }
+  }
+}
