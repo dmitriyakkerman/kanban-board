@@ -1,5 +1,6 @@
 <template>
     <div class="dashboard">
+        <Search></Search>
         <transition name="appear">
             <div v-if="!dashboardToggling" class="dashboard__inner" :class="dashboardState">
                 <Todo></Todo>
@@ -20,6 +21,7 @@ import Todo from "./Todo";
 import InProgress from "./InProgress";
 import Testing from "./Testing";
 import Done from "./Done";
+import Search from "./Search";
 import Viewbar from "../../components/Viewbar/Viewbar";
 import GitHubCorner from "../../components/GitHubCorner/GitHubCorner";
 
@@ -31,6 +33,7 @@ export default {
         InProgress,
         Testing,
         Done,
+        Search,
         Viewbar,
         GitHubCorner,
         DashboardLoader: () => import('../../components/Loaders/DashboardLoader.vue')
