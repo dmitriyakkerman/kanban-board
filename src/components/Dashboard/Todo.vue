@@ -2,7 +2,16 @@
     <div class="board board--todo">
         <div class="board__title">ToDo</div>
         <draggable class="tasks list-group" :list="todoTasks" group="tasks" @add="onUpdate" @remove="onUpdate">
-            <div class="task list-group-item" v-for="task in filteredTasks" :key="task.id">{{ task.text }}</div>
+            <div class="task list-group-item" v-for="task in filteredTasks" :key="task.id">
+                <div class="task__text">{{ task.title }}</div>
+                <div class="task__info" v-if="task.deadline">
+                    <div class="task-date" title="Task deadline">
+                        <i class="task-date__icon material-icons">access_time</i>
+                        <span class="task-date__data">{{ new Date(task.deadline) | formatDate }}</span>
+                    </div>
+                    <div class="task__status"></div>
+                </div>
+            </div>
         </draggable>
     </div>
 </template>

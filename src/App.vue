@@ -3,6 +3,7 @@
       <Sidebar></Sidebar>
       <Dashboard></Dashboard>
       <Modal></Modal>
+      <GitHubCorner></GitHubCorner>
   </div>
 </template>
 
@@ -11,6 +12,7 @@
 import Sidebar from "./components/Sidebar/Sidebar";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Modal from "./components/Modal/Modal";
+import GitHubCorner from "./components/GitHubCorner/GitHubCorner";
 
 import {mapGetters} from 'vuex';
 
@@ -19,7 +21,8 @@ export default {
   components: {
     Sidebar,
     Dashboard,
-    Modal
+    Modal,
+    GitHubCorner
   },
   computed: {
     ...mapGetters(['dashboardToggling'])

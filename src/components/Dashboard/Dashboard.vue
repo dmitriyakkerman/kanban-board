@@ -1,20 +1,17 @@
 <template>
     <div class="dashboard">
-        <Search></Search>
+        <Search v-if="$router.currentRoute.path !== '/stats'"></Search>
         <router-view></router-view>
-        <GitHubCorner></GitHubCorner>
     </div>
 </template>
 
 <script>
 
 import Search from "./Search";
-import GitHubCorner from "../../components/GitHubCorner/GitHubCorner";
 
 export default {
     components: {
-        Search,
-        GitHubCorner
+        Search
     }
 }
 

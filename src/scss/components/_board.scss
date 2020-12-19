@@ -25,28 +25,68 @@
   &--todo {
 
     .board__title {
-      background: $color-blue;
+      background: $color-violet;
+    }
+
+    .tasks {
+
+      .task {
+
+        &:before {
+          background: $color-violet;
+        }
+      }
     }
   }
 
   &--in-progress {
 
     .board__title {
-      background: $color-green;
+      background: $color-blue;
+    }
+
+    .tasks {
+
+      .task {
+
+        &:before {
+          background: $color-blue;
+        }
+      }
     }
   }
 
   &--testing {
 
     .board__title {
-      background: $color-orange;
+      background: $color-yellow;
+    }
+
+    .tasks {
+
+      .task {
+
+        &:before {
+          background: $color-yellow;
+        }
+      }
     }
   }
 
   &--done {
 
     .board__title {
-      background: $color-yellow;
+      background: $color-green;
+    }
+
+    .tasks {
+
+      .task {
+
+        &:before {
+          background: $color-green;
+        }
+      }
     }
   }
 }

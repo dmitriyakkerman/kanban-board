@@ -1,4 +1,12 @@
 .modal {
   width: 650px;
   transform: none !important;
+
+  .datepicker-date-display {
+    background: $color-violet !important;
+  }
+
+  &__submit {
+    background: $color-violet;
+  }
 }

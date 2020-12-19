@@ -2,10 +2,7 @@ export default {
     state: {
         todoTasks: JSON.parse(localStorage.getItem('todoTasks')) || [
             {
-                id: 1, text: '111', deadline: null
-            },
-            {
-                id: 2, text: '122211', deadline: new Date()
+                id: Date.now(), title: 'Initial task', text: 'Initial task', deadline: new Date()
             }
         ],
         inProgressTasks: JSON.parse(localStorage.getItem('inProgressTasks')) || [],

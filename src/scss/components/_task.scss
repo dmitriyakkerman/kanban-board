@@ -22,59 +22,26 @@
   &:hover {
     background: #f6f6f9;
   }
-}
 
-.board {
-
-  &--todo {
-
-    .tasks {
-
-      .task {
-
-        &:before {
-          background: $color-blue;
-        }
-      }
-    }
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
   }
 
-  &--in-progress {
+  &-date {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: $color-violet;
 
-    .tasks {
-
-      .task {
-
-        &:before {
-          background: $color-green;
-        }
-      }
+    &__icon {
+      font-size: 21px;
     }
-  }
 
-  &--testing {
-
-    .tasks {
-
-      .task {
-
-        &:before {
-          background: $color-orange;
-        }
-      }
-    }
-  }
-
-  &--done {
-
-    .tasks {
-
-      .task {
-
-        &:before {
-          background: $color-yellow;
-        }
-      }
+    &__data {
+      margin-left: 5px;
     }
   }
 }

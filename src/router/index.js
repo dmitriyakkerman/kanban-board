@@ -5,7 +5,7 @@ import InProgress from "../views/InProgress";
 import Expiring from "../views/Expiring";
 import Testing from "../views/Testing";
 import Done from "../views/Done";
-
+import Stats from "../views/Stats";
 
 Vue.use(VueRouter)
 
@@ -31,6 +31,10 @@ export default new VueRouter(({
         {
             path: '/done',
             component: Done
+        },
+        {
+            path: '/stats',
+            component: Stats
         }
     ]
 }))
