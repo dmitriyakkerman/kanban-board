@@ -1,6 +1,47 @@
 .sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 150px;
   height: 100%;
   box-shadow: 36px 0px 12px -6px rgba(0,0,0,0.75);
   background: #5e5e6d;
+
+  &-menu {
+    margin-top: 25px;
+
+    &__item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-transform: uppercase;
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+
+      &:not(:last-child) {
+        margin-bottom: 25px;
+      }
+
+      &.active {
+
+        .sidebar-menu__btn {
+          background: $color-violet !important;
+        }
+      }
+
+      span {
+        margin-top: 5px;
+      }
+    }
+
+    &__btn {
+      background: #545463;
+
+      &:hover {
+        background: $color-violet !important;
+      }
+    }
+  }
 }

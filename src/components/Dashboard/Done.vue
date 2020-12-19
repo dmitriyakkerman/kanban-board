@@ -1,8 +1,8 @@
 <template>
     <div class="board board--done">
-        <h3 class="board__title">Done</h3>
-        <draggable class="tasks list-group" :list="doneTasks" group="tasks">
-            <div class="task list-group-item" v-for="task in doneTasks" :key="task.name">{{ task.name }}</div>
+        <div class="board__title">Done</div>
+        <draggable class="tasks list-group" :list="doneTasks" group="tasks" @add="onUpdate" @remove="onUpdate">
+            <div class="task list-group-item" v-for="task in filteredTasks" :key="task.id">{{ task.text }}</div>
         </draggable>
     </div>
 </template>
@@ -10,14 +10,23 @@
 <script>
 
     import draggable from 'vuedraggable'
-    import {mapGetters} from 'vuex'
+    import {mapGetters, mapMutations} from 'vuex'
 
     export default {
         components: {
             draggable
         },
+        props: {
+            filteredTasks: Array
+        },
         computed: {
             ...mapGetters(['doneTasks'])
+        },
+        methods: {
+            ...mapMutations(['updateDoneTasks']),
+            onUpdate(){
+                this.updateDoneTasks(this.doneTasks)
+            }
         }
     }
 

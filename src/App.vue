@@ -2,6 +2,7 @@
   <div id="app" class="app">
       <Sidebar></Sidebar>
       <Dashboard></Dashboard>
+      <Modal></Modal>
   </div>
 </template>
 
@@ -9,6 +10,7 @@
 
 import Sidebar from "./components/Sidebar/Sidebar";
 import Dashboard from "./components/Dashboard/Dashboard";
+import Modal from "./components/Modal/Modal";
 
 import {mapGetters} from 'vuex';
 
@@ -16,10 +18,15 @@ export default {
   name: 'App',
   components: {
     Sidebar,
-    Dashboard
+    Dashboard,
+    Modal
   },
   computed: {
     ...mapGetters(['dashboardToggling'])
   }
 }
 </script>
+
+<style lang="scss">
+    @import "~materialize-css/dist/css/materialize.min.css";
+</style>

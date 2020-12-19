@@ -1,15 +1,26 @@
 <template>
     <form action="" class="search-form">
-        <input type="text" v-model="searchRequest" class="search-form__input">
+        <div class="search-form__input input-field">
+            <input type="text" id="search" v-model="searchRequest" @input="filterValue($event.target.value)">
+            <label for="search">Search task</label>
+        </div>
     </form>
 </template>
 
 <script>
 
+    import {mapMutations} from 'vuex'
+
     export default {
         data() {
             return {
                 searchRequest: ''
+            }
+        },
+        methods: {
+            ...mapMutations(['setSearchRequest']),
+            filterValue(value) {
+                this.setSearchRequest(value)
             }
         }
     }

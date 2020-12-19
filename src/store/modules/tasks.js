@@ -1,14 +1,17 @@
 export default {
     state: {
-        todoTasks: [
-            { name: "Code Sign Up Page" },
-            { name: "Test Dashboard" },
-            { name: "Style Registration" },
-            { name: "Help with Designs" }
+        todoTasks: JSON.parse(localStorage.getItem('todoTasks')) || [
+            {
+                id: 1, text: '111', deadline: null
+            },
+            {
+                id: 2, text: '122211', deadline: new Date()
+            }
         ],
-        inProgressTasks: [],
-        testingTasks: [],
-        doneTasks: []
+        inProgressTasks: JSON.parse(localStorage.getItem('inProgressTasks')) || [],
+        testingTasks: JSON.parse(localStorage.getItem('testingTasks')) || [],
+        doneTasks: JSON.parse(localStorage.getItem('doneTasks')) || [],
+        taskToSearch: ''
     },
     getters: {
         todoTasks(state) {
@@ -22,6 +25,34 @@ export default {
         },
         doneTasks(state) {
             return state.doneTasks
+        },
+        taskToSearch(state) {
+            return state.taskToSearch
+        }
+    },
+    mutations: {
+        setSearchRequest(state, word) {
+            state.taskToSearch = word
+        },
+        updateTodoTasks(state, tasks) {
+            state.todoTasks = tasks
+            localStorage.setItem('todoTasks', JSON.stringify(state.todoTasks))
+        },
+        updateInProgressTasks(state, tasks) {
+            state.inProgressTasks = tasks
+            localStorage.setItem('inProgressTasks', JSON.stringify(state.inProgressTasks))
+        },
+        updateTestingTasks(state, tasks) {
+            state.testingTasks = tasks
+            localStorage.setItem('testingTasks', JSON.stringify(state.testingTasks))
+        },
+        updateDoneTasks(state, tasks) {
+            state.doneTasks = tasks
+            localStorage.setItem('doneTasks', JSON.stringify(state.doneTasks))
+        },
+        addTodoTask(state, task) {
+            state.todoTasks.push(task);
+            localStorage.setItem('todoTasks', JSON.stringify(state.todoTasks))
         }
     }
 }

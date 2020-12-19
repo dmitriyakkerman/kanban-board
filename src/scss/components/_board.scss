@@ -18,33 +18,35 @@
   &__title {
     padding: 10px;
     color: #fff;
+    font-size: 18px;
+    font-weight: 500;
   }
 
   &--todo {
 
     .board__title {
-      background: #a696ff;
+      background: $color-blue;
     }
   }
 
   &--in-progress {
 
     .board__title {
-      background: #0fd34b;
+      background: $color-green;
     }
   }
 
   &--testing {
 
     .board__title {
-      background: #ff8653;
+      background: $color-orange;
     }
   }
 
   &--done {
 
     .board__title {
-      background: #ffd74c;
+      background: $color-yellow;
     }
   }
 }

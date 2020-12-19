@@ -33,7 +33,7 @@
       .task {
 
         &:before {
-          background: #a696ff;
+          background: $color-blue;
         }
       }
     }
@@ -46,7 +46,7 @@
       .task {
 
         &:before {
-          background: #0fd34b;
+          background: $color-green;
         }
       }
     }
@@ -59,7 +59,7 @@
       .task {
 
         &:before {
-          background: #ff8653;
+          background: $color-orange;
         }
       }
     }
@@ -72,7 +72,7 @@
       .task {
 
         &:before {
-          background: #ffd74c;
+          background: $color-yellow;
         }
       }
     }

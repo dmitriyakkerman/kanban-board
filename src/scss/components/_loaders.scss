@@ -12,7 +12,7 @@
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    background: #a696ff;
+    background: $color-violet;
     animation: dashboard-loader 1.2s linear infinite;
 
     &:nth-child(1) {
