@@ -10,15 +10,14 @@
         },
         mounted() {
             this.renderChart({
-                labels: ['Todo', 'In Progress', 'Testing', 'Done', 'Expired'],
+                labels: ['Todo', 'In Progress', 'Testing', 'Done'],
                 datasets: [{
-                    data: [this.todoTasks.length, this.inProgressTasks.length, this.testingTasks.length, this.doneTasks.length, 1],
+                    data: [this.todoTasks.length, this.inProgressTasks.length, this.testingTasks.length, this.doneTasks.length],
                     backgroundColor: [
                         '#399dff',
                         '#ffd74c',
                         '#ff8653',
-                        '#0fd34b',
-                        '#000'
+                        '#0fd34b'
                     ]
                 }]
             },
