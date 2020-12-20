@@ -4,8 +4,11 @@
             <h4>New task</h4>
             <form class="" @submit.prevent="submitTask">
                 <div class="input-field">
-                    <input id="taskTitle" type="text" v-model="taskTitle">
-                    <label for="taskTitle">Task title</label>
+                    <input id="taskTitle" class="validate" type="text" v-model="taskTitle">
+                    <label for="taskTitle">Task title*</label>
+                    <transition name="appear">
+                        <span v-if="formError" class="form-error">Field is required</span>
+                    </transition>
                 </div>
                 <div class="input-field">
                     <textarea id="taskText" class="materialize-textarea" v-model="taskText"></textarea>
@@ -32,7 +35,8 @@
             return {
                 taskTitle: '',
                 taskText: '',
-                deadline: null
+                deadline: null,
+                formError: false
             }
         },
         methods: {
@@ -49,7 +53,6 @@
                             deadline: this.deadline.date
                         };
                     }
-
                     else {
                         todoTask = {
                             id: Date.now(),
@@ -60,7 +63,16 @@
 
                     this.addTodoTask(todoTask);
                     window.modal.close();
+                    this.taskTitle = '';
                     this.taskText = '';
+                    this.formError = false;
+
+                    if(this.$router.currentRoute.path !== '/') {
+                        this.$router.push('/')
+                    }
+                }
+                else {
+                    this.formError = true;
                 }
             }
         },

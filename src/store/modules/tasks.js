@@ -50,6 +50,30 @@ export default {
         addTodoTask(state, task) {
             state.todoTasks.push(task);
             localStorage.setItem('todoTasks', JSON.stringify(state.todoTasks))
+        },
+        removeTodoTask(state, id) {
+            state.todoTasks = state.todoTasks.filter(function (task) {
+                return task.id !== id;
+            });
+            localStorage.setItem('todoTasks', JSON.stringify(state.todoTasks))
+        },
+        removeTestingTask(state, id) {
+            state.testingTasks = state.testingTasks.filter(function (task) {
+                return task.id !== id;
+            });
+            localStorage.setItem('testingTasks', JSON.stringify(state.testingTasks))
+        },
+        removeInProgressTask(state, id) {
+            state.inProgressTasks = state.inProgressTasks.filter(function (task) {
+                return task.id !== id;
+            });
+            localStorage.setItem('inProgressTasks', JSON.stringify(state.inProgressTasks))
+        },
+        removeDoneTask(state, id) {
+            state.doneTasks = state.doneTasks.filter(function (task) {
+                return task.id !== id;
+            });
+            localStorage.setItem('doneTasks', JSON.stringify(state.doneTasks))
         }
     }
 }

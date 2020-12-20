@@ -17,10 +17,6 @@
                     <a class="sidebar-menu__btn btn-floating btn-large waves-effect white-text"><i class="material-icons">settings</i></a>
                     <span>Testing</span>
                 </router-link>
-                <router-link class="sidebar-menu__item" tag="li" to="/expiring" active-class="active">
-                    <a class="sidebar-menu__btn btn-floating btn-large waves-effect white-text"><i class="material-icons">timelapse</i></a>
-                    <span>Expiring</span>
-                </router-link>
                 <router-link class="sidebar-menu__item" tag="li" to="/done" active-class="active">
                     <a class="sidebar-menu__btn btn-floating btn-large waves-effect white-text"><i class="material-icons">done</i></a>
                     <span>Done</span>

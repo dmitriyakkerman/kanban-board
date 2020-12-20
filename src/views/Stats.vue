@@ -7,7 +7,7 @@
 
 <script>
 
-    import Stats from "../components/Stats/Stats";
+    import Stats from "../components/Dashboard/Stats";
 
     export default {
         components: {

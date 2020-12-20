@@ -25,23 +25,6 @@
   &--todo {
 
     .board__title {
-      background: $color-violet;
-    }
-
-    .tasks {
-
-      .task {
-
-        &:before {
-          background: $color-violet;
-        }
-      }
-    }
-  }
-
-  &--in-progress {
-
-    .board__title {
       background: $color-blue;
     }
 
@@ -56,7 +39,7 @@
     }
   }
 
-  &--testing {
+  &--in-progress {
 
     .board__title {
       background: $color-yellow;
@@ -68,6 +51,23 @@
 
         &:before {
           background: $color-yellow;
+        }
+      }
+    }
+  }
+
+  &--testing {
+
+    .board__title {
+      background: $color-orange;
+    }
+
+    .tasks {
+
+      .task {
+
+        &:before {
+          background: $color-orange;
         }
       }
     }

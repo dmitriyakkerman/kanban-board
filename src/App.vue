@@ -1,5 +1,6 @@
 <template>
   <div id="app" class="app">
+      <Preloader></Preloader>
       <Sidebar></Sidebar>
       <Dashboard></Dashboard>
       <Modal></Modal>
@@ -9,9 +10,10 @@
 
 <script>
 
+import Preloader from "./components/Loaders/Preloader";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Dashboard from "./components/Dashboard/Dashboard";
-import Modal from "./components/Modal/Modal";
+import Modal from "./components/Modal/AddModal";
 import GitHubCorner from "./components/GitHubCorner/GitHubCorner";
 
 import {mapGetters} from 'vuex';
@@ -19,6 +21,7 @@ import {mapGetters} from 'vuex';
 export default {
   name: 'App',
   components: {
+    Preloader,
     Sidebar,
     Dashboard,
     Modal,
