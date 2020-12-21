@@ -1,7 +1,9 @@
 <template>
     <div class="dashboard">
         <Search v-if="$router.currentRoute.path !== '/stats'"></Search>
-        <router-view></router-view>
+        <transition name="fade">
+            <router-view></router-view>
+        </transition>
     </div>
 </template>
 

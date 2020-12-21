@@ -1,3 +1,10 @@
 .search-form {
   width: 280px;
 }
+
+@media(max-width: 379px) {
+
+  .search-form {
+    width: 200px;
+  }
+}

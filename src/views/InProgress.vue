@@ -1,10 +1,10 @@
 <template>
-    <transition name="appear">
+    <div>
         <div v-if="!dashboardToggling" class="dashboard__inner" :class="dashboardState">
             <InProgress :filteredTasks="filteredTasks(inProgressTasks)"></InProgress>
         </div>
         <DashboardLoader v-else></DashboardLoader>
-    </transition>
+    </div>
 </template>
 
 <script>

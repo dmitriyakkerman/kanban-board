@@ -3,13 +3,13 @@
         <div class="board__title">ToDo</div>
         <draggable class="tasks list-group" :list="todoTasks" group="tasks" @add="onUpdate" @remove="onUpdate">
             <div class="task list-group-item" v-for="task in filteredTasks" :key="task.id">
-                <div class="task__text">{{ task.title }}</div>
+                <div class="task-data">
+                    <div class="task__title">{{ task.title }}</div>
+                    <div class="task__text">{{ task.text }}</div>
+                </div>
                 <div class="task-menu">
-                    <a href="" class="task-menu__edit" title="Edit">
-                        <i class="task-status__icon material-icons">edit</i>
-                    </a>
                     <a href="" class="task-menu__remove" title="Remove" @click.prevent="removeTask(task.id)">
-                        <i class="task-status__icon material-icons">delete</i>
+                        <i class="material-icons">delete</i>
                     </a>
                 </div>
                 <div class="task__info" v-if="task.deadline">
@@ -42,13 +42,13 @@
             ...mapGetters(['todoTasks'])
         },
         methods: {
-            ...mapMutations(['updateTodoTasks', 'removeTodoTask']),
+            ...mapMutations(['updateTodoTasks', 'removeTodoTask', 'updateModalData']),
             onUpdate(){
                 this.updateTodoTasks(this.todoTasks)
             },
             removeTask(id) {
                 this.removeTodoTask(id);
-            },
+            }
         }
     }
 
