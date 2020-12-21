@@ -8,8 +8,7 @@ export default {
         inProgressTasks: JSON.parse(localStorage.getItem('inProgressTasks')) || [],
         testingTasks: JSON.parse(localStorage.getItem('testingTasks')) || [],
         doneTasks: JSON.parse(localStorage.getItem('doneTasks')) || [],
-        taskToSearch: '',
-        editModalData: null
+        taskToSearch: ''
     },
     getters: {
         todoTasks(state) {
@@ -33,19 +32,19 @@ export default {
             state.taskToSearch = word
         },
         updateTodoTasks(state, tasks) {
-            state.todoTasks = tasks
+            state.todoTasks = tasks;
             localStorage.setItem('todoTasks', JSON.stringify(state.todoTasks))
         },
         updateInProgressTasks(state, tasks) {
-            state.inProgressTasks = tasks
+            state.inProgressTasks = tasks;
             localStorage.setItem('inProgressTasks', JSON.stringify(state.inProgressTasks))
         },
         updateTestingTasks(state, tasks) {
-            state.testingTasks = tasks
+            state.testingTasks = tasks;
             localStorage.setItem('testingTasks', JSON.stringify(state.testingTasks))
         },
         updateDoneTasks(state, tasks) {
-            state.doneTasks = tasks
+            state.doneTasks = tasks;
             localStorage.setItem('doneTasks', JSON.stringify(state.doneTasks))
         },
         addTodoTask(state, task) {

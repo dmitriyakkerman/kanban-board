@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-if="!dashboardToggling" class="dashboard__inner" :class="dashboardState">
-            <InProgress :filteredTasks="filteredTasks(inProgressTasks)"></InProgress>
+            <Board :filteredTasks="filteredTasks(inProgressTasks)" :category="inProgressTasks" :title="'In Progress'" :classModifier="'in-progress'"></Board>
         </div>
         <DashboardLoader v-else></DashboardLoader>
     </div>
@@ -9,29 +9,21 @@
 
 <script>
 
-    import InProgress from "../components/Dashboard/InProgress";
+    import Board from "../components/Dashboard/Board";
 
     import {mapGetters} from 'vuex';
+    import {filteredTasks} from "../functions";
 
     export default {
         components: {
-            InProgress,
+            Board,
             DashboardLoader: () => import('../components/Loaders/DashboardLoader.vue')
         },
         computed: {
             ...mapGetters(['dashboardState', 'dashboardToggling', 'taskToSearch', 'inProgressTasks']),
         },
         methods: {
-            filteredTasks(tasks) {
-                let that = this;
-                let filteredNotes;
-                filteredNotes = tasks.filter(function (task) {
-                    if(task.title.toLowerCase().indexOf(that.taskToSearch.toLowerCase()) !== -1) {
-                        return task
-                    }
-                });
-                return filteredNotes
-            }
+            filteredTasks
         }
     }
 

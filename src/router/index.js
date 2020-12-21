@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import AllTasks from "../views/AllTasks";
+import AllTasks from "../views/All";
+import Todo from "../views/Todo";
 import InProgress from "../views/InProgress";
 import Testing from "../views/Testing";
 import Done from "../views/Done";
@@ -14,6 +15,10 @@ export default new VueRouter(({
         {
             path: '/',
             component: AllTasks
+        },
+        {
+            path: '/todo',
+            component: Todo
         },
         {
             path: '/in-progress',

@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-if="!dashboardToggling" class="dashboard__inner" :class="dashboardState">
-            <Done :filteredTasks="filteredTasks(doneTasks)"></Done>
+            <Board :filteredTasks="filteredTasks(doneTasks)" :category="doneTasks" :title="'Done'" :classModifier="'done'"></Board>
         </div>
         <DashboardLoader v-else></DashboardLoader>
     </div>
@@ -9,13 +9,13 @@
 
 <script>
 
-    import Done from "../components/Dashboard/Done";
+    import Board from "../components/Dashboard/Board";
 
     import {mapGetters} from 'vuex';
 
     export default {
         components: {
-            Done,
+            Board,
             DashboardLoader: () => import('../components/Loaders/DashboardLoader.vue')
         },
         computed: {

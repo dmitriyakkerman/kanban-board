@@ -13,7 +13,7 @@
 import Preloader from "./components/Loaders/Preloader";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Dashboard from "./components/Dashboard/Dashboard";
-import Modal from "./components/Modal/AddModal";
+import Modal from "./components/Modal/Modal";
 import GitHubCorner from "./components/GitHubCorner/GitHubCorner";
 
 import {mapGetters} from 'vuex';

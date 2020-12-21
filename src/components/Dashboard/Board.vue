@@ -1,7 +1,7 @@
 <template>
-    <div class="board board--done">
-        <div class="board__title">Done</div>
-        <draggable class="tasks list-group" :list="doneTasks" group="tasks" @add="onUpdate" @remove="onUpdate">
+    <div class="board" :class="'board--' + classModifier">
+        <div class="board__title">{{ title }}</div>
+        <draggable class="tasks list-group" :list="category" group="tasks" @add="onUpdate" @remove="onUpdate">
             <div class="task list-group-item" v-for="task in filteredTasks" :key="task.id">
                 <div class="task-data">
                     <div class="task__title">{{ task.title }}</div>
@@ -36,17 +36,26 @@
             draggable
         },
         props: {
-            filteredTasks: Array
+            filteredTasks: Array,
+            category: Array,
+            title: String,
+            classModifier: String
         },
         computed: {
-            ...mapGetters(['doneTasks'])
+            ...mapGetters(['todoTasks', 'inProgressTasks', 'testingTasks', 'doneTasks'])
         },
         methods: {
-            ...mapMutations(['updateDoneTasks', 'removeDoneTask']),
+            ...mapMutations(['updateTodoTasks', 'updateInProgressTasks', 'updateTestingTasks', 'updateDoneTasks', 'removeTodoTask', 'removeInProgressTask', 'removeTestingTask', 'removeDoneTask']),
             onUpdate(){
-                this.updateDoneTasks(this.doneTasks)
+                this.updateTodoTasks(this.todoTasks);
+                this.updateInProgressTasks(this.inProgressTasks);
+                this.updateTestingTasks(this.testingTasks);
+                this.updateDoneTasks(this.doneTasks);
             },
             removeTask(id) {
+                this.removeTodoTask(id);
+                this.removeInProgressTask(id);
+                this.removeTestingTask(id);
                 this.removeDoneTask(id);
             }
         }

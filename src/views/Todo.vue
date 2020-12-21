@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-if="!dashboardToggling" class="dashboard__inner" :class="dashboardState">
-            <Board :filteredTasks="filteredTasks(testingTasks)" :category="testingTasks" :title="'Testing'" :classModifier="'testing'"></Board>
+            <Board :filteredTasks="filteredTasks(todoTasks)" :category="todoTasks" :title="'Todo'" :classModifier="'todo'"></Board>
         </div>
         <DashboardLoader v-else></DashboardLoader>
     </div>
@@ -20,7 +20,7 @@
             DashboardLoader: () => import('../components/Loaders/DashboardLoader.vue')
         },
         computed: {
-            ...mapGetters(['dashboardState', 'dashboardToggling', 'taskToSearch', 'testingTasks']),
+            ...mapGetters(['dashboardState', 'dashboardToggling', 'taskToSearch', 'todoTasks']),
         },
         methods: {
             filteredTasks
