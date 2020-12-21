@@ -1,13 +1,15 @@
 import Vue from "vue";
 import Vuex from 'vuex';
-import tasks from "./modules/tasks";
+import sidebar from "./modules/sidebar";
 import dashboard from "./modules/dashboard";
+import tasks from "./modules/tasks";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
     modules: {
-        tasks,
-        dashboard
+        sidebar,
+        dashboard,
+        tasks
     }
 })
