@@ -7,7 +7,6 @@
                 <Board :filteredTasks="filteredTasks(testingTasks)" :category="testingTasks" :title="'Testing'" :classModifier="'testing'"></Board>
                 <Board :filteredTasks="filteredTasks(doneTasks)" :category="doneTasks" :title="'Done'" :classModifier="'done'"></Board>
             </div>
-            <DashboardLoader v-else></DashboardLoader>
         </transition>
         <Viewbar></Viewbar>
     </div>
@@ -24,8 +23,7 @@
     export default {
         components: {
             Board,
-            Viewbar,
-            DashboardLoader: () => import('../components/Loaders/DashboardLoader.vue')
+            Viewbar
         },
         computed: {
             ...mapGetters(['dashboardState', 'dashboardToggling', 'taskToSearch', 'todoTasks', 'doneTasks', 'inProgressTasks', 'testingTasks']),

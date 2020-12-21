@@ -4,6 +4,9 @@
         <transition name="fade">
             <router-view></router-view>
         </transition>
+        <transition name="appear">
+            <DashboardLoader v-if="dashboardToggling"></DashboardLoader>
+        </transition>
     </div>
 </template>
 
@@ -11,9 +14,15 @@
 
 import Search from "./Search";
 
+import {mapGetters} from 'vuex'
+
 export default {
     components: {
-        Search
+        Search,
+        DashboardLoader: () => import('../../components/Loaders/DashboardLoader.vue')
+    },
+    computed: {
+        ...mapGetters(['dashboardToggling'])
     }
 }
 
