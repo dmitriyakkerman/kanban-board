@@ -54,7 +54,8 @@
                 let taskInfo = {
                     id,
                     title
-                }
+                };
+
                 this.deleteTask(taskInfo);
             }
         }

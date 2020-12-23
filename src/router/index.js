@@ -1,13 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import AllTasks from "../views/All";
-import Todo from "../views/Todo";
-import InProgress from "../views/InProgress";
-import Testing from "../views/Testing";
-import Done from "../views/Done";
-import Stats from "../views/Stats";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 export default new VueRouter(({
     mode: 'history',
@@ -18,23 +13,23 @@ export default new VueRouter(({
         },
         {
             path: '/todo',
-            component: Todo
+            component: () => import('../views/Todo.vue')
         },
         {
             path: '/in-progress',
-            component: InProgress
+            component: () => import('../views/InProgress.vue')
         },
         {
             path: '/testing',
-            component: Testing
+            component: () => import('../views/Testing.vue')
         },
         {
             path: '/done',
-            component: Done
+            component: () => import('../views/Done.vue')
         },
         {
             path: '/stats',
-            component: Stats
+            component: () => import('../views/Stats.vue')
         }
     ]
 }))

@@ -10,7 +10,6 @@
 
 <script>
 
-import Preloader from "./components/Loaders/Preloader";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Modal from "./components/Modal/Modal";
@@ -21,7 +20,7 @@ import {mapGetters} from 'vuex';
 export default {
   name: 'App',
   components: {
-    Preloader,
+    Preloader: () => import('./components/Loaders/Preloader.vue'),
     Sidebar,
     Dashboard,
     Modal,
