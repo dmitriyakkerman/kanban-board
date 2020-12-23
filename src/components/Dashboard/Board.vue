@@ -1,14 +1,14 @@
 <template>
-    <div class="board" :class="'board--' + classModifier">
-        <div class="board__title">{{ title }}</div>
-        <draggable class="tasks list-group" :list="category" group="tasks" @add="onUpdate" @remove="onUpdate">
+    <div class="board" :class="'board--' + tasksInfo.info.classModifier">
+        <div class="board__title">{{ tasksInfo.info.title }}</div>
+        <draggable class="tasks list-group" :list="tasksInfo.tasks" group="tasks" @add="onUpdate" @remove="onUpdate">
             <div class="task list-group-item" v-for="task in filteredTasks" :key="task.id">
                 <div class="task-data">
                     <div class="task__title">{{ task.title }}</div>
                     <div class="task__text">{{ task.text }}</div>
                 </div>
                 <div class="task-menu">
-                    <a href="" class="task-menu__remove" title="Remove" @click.prevent="removeTask(task.id)">
+                    <a href="" class="task-menu__remove" title="Remove" @click.prevent="removeTask(task.id, tasksInfo.info.title)">
                         <i class="material-icons">delete</i>
                     </a>
                 </div>
@@ -37,26 +37,25 @@
         },
         props: {
             filteredTasks: Array,
-            category: Array,
-            title: String,
-            classModifier: String
+            tasksInfo: Object
         },
         computed: {
             ...mapGetters(['todoTasks', 'inProgressTasks', 'testingTasks', 'doneTasks'])
         },
         methods: {
-            ...mapMutations(['updateTodoTasks', 'updateInProgressTasks', 'updateTestingTasks', 'updateDoneTasks', 'removeTodoTask', 'removeInProgressTask', 'removeTestingTask', 'removeDoneTask']),
+            ...mapMutations(['updateTasks', 'deleteTask']),
             onUpdate(){
-                this.updateTodoTasks(this.todoTasks);
-                this.updateInProgressTasks(this.inProgressTasks);
-                this.updateTestingTasks(this.testingTasks);
-                this.updateDoneTasks(this.doneTasks);
+                this.updateTasks(this.todoTasks);
+                this.updateTasks(this.inProgressTasks);
+                this.updateTasks(this.testingTasks);
+                this.updateTasks(this.doneTasks);
             },
-            removeTask(id) {
-                this.removeTodoTask(id);
-                this.removeInProgressTask(id);
-                this.removeTestingTask(id);
-                this.removeDoneTask(id);
+            removeTask(id, title) {
+                let taskInfo = {
+                    id,
+                    title
+                }
+                this.deleteTask(taskInfo);
             }
         }
     }

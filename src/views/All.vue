@@ -2,10 +2,10 @@
     <div>
         <transition name="appear">
             <div v-if="!dashboardToggling" class="dashboard__inner" :class="dashboardState">
-                <Board :filteredTasks="filteredTasks(todoTasks)" :category="todoTasks" :title="'Todo'" :classModifier="'todo'"></Board>
-                <Board :filteredTasks="filteredTasks(inProgressTasks)" :category="inProgressTasks" :title="'In Progress'" :classModifier="'in-progress'"></Board>
-                <Board :filteredTasks="filteredTasks(testingTasks)" :category="testingTasks" :title="'Testing'" :classModifier="'testing'"></Board>
-                <Board :filteredTasks="filteredTasks(doneTasks)" :category="doneTasks" :title="'Done'" :classModifier="'done'"></Board>
+                <Board :filteredTasks="filteredTasks(todoTasks.tasks)" :tasksInfo="todoTasks"></Board>
+                <Board :filteredTasks="filteredTasks(inProgressTasks.tasks)" :tasksInfo="inProgressTasks"></Board>
+                <Board :filteredTasks="filteredTasks(testingTasks.tasks)" :tasksInfo="testingTasks"></Board>
+                <Board :filteredTasks="filteredTasks(doneTasks.tasks)" :tasksInfo="doneTasks"></Board>
             </div>
         </transition>
         <Viewbar></Viewbar>

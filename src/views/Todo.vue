@@ -1,6 +1,6 @@
 <template>
     <div v-if="!dashboardToggling" class="dashboard__inner" :class="dashboardState">
-        <Board :filteredTasks="filteredTasks(todoTasks)" :category="todoTasks" :title="'Todo'" :classModifier="'todo'"></Board>
+        <Board :filteredTasks="filteredTasks(todoTasks)" :tasksInfo="todoTasks"></Board>
     </div>
 </template>
 
