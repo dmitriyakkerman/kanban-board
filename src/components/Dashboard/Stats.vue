@@ -12,7 +12,7 @@
             this.renderChart({
                 labels: ['Todo', 'In Progress', 'Testing', 'Done'],
                 datasets: [{
-                    data: [this.todoTasks.length, this.inProgressTasks.length, this.testingTasks.length, this.doneTasks.length],
+                    data: [this.todoTasks.tasks.length, this.inProgressTasks.tasks.length, this.testingTasks.tasks.length, this.doneTasks.tasks.length],
                     backgroundColor: [
                         '#399dff',
                         '#ffd74c',

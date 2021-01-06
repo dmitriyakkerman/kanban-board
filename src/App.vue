@@ -1,35 +1,31 @@
 <template>
   <div id="app" class="app">
-      <Preloader></Preloader>
-      <Sidebar></Sidebar>
-      <Dashboard></Dashboard>
-      <Modal></Modal>
-      <GitHubCorner></GitHubCorner>
+    <Preloader></Preloader>
+    <GitHubCorner></GitHubCorner>
+    <component :is="layout"></component>
   </div>
 </template>
 
 <script>
 
-import Preloader from "./components/Loaders/Preloader";
-import Sidebar from "./components/Sidebar/Sidebar";
-import Dashboard from "./components/Dashboard/Dashboard";
-import Modal from "./components/Modal/Modal";
-import GitHubCorner from "./components/GitHubCorner/GitHubCorner";
-
-import {mapGetters} from 'vuex';
+    import Auth from "./layouts/Auth";
+    import Main from "./layouts/Main";
+    import Preloader from "./components/Loaders/Preloader";
+    import GitHubCorner from "./components/GitHubCorner/GitHubCorner";
 
 export default {
-  name: 'App',
-  components: {
-    Preloader,
-    Sidebar,
-    Dashboard,
-    Modal,
-    GitHubCorner
-  },
-  computed: {
-    ...mapGetters(['dashboardToggling'])
-  }
+    name: 'App',
+    components: {
+        Auth,
+        Main,
+        Preloader,
+        GitHubCorner
+    },
+    computed: {
+        layout() {
+            return this.$route.meta.layout || 'Main'
+        }
+    }
 }
 </script>
 
