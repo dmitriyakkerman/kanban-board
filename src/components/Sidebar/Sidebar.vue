@@ -29,6 +29,13 @@
         methods: {
             openModal() {
                 window.modal.open();
+<<<<<<< HEAD
+=======
+            },
+            logout() {
+                this.$store.dispatch('logout')
+                this.$router.push('/login?message=logout')
+>>>>>>> parent of 1ee1e2c... auth
             }
         }
     }
