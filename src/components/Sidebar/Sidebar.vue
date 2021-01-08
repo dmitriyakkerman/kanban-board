@@ -36,6 +36,7 @@
             },
             logout() {
                 this.$store.dispatch('logout')
+                this.$alert('You are logged out')
                 this.$router.push('/login?message=logout')
             }
         }

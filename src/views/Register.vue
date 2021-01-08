@@ -1,6 +1,6 @@
 <template>
     <div class="auth">
-        <h1>Sign In</h1>
+        <h1>Sign Up</h1>
         <form @submit.prevent="submitForm" class="auth-form">
             <div class="input-field">
                 <input id="name" type="text" v-model.trim="name" :class="{invalid: $v.name.$dirty && !$v.name.required}">
@@ -19,7 +19,7 @@
                 <span v-if="$v.password.$dirty && !$v.password.required" class="red-text">Type password</span>
                 <span v-else-if="$v.email.$dirty && !$v.password.minLength" class="red-text">Password length should be at least {{ $v.password.$params.minLength.min }} symbols</span>
             </div>
-            <button class="btn waves-effect waves-light" type="submit" name="action">Sign In
+            <button class="btn waves-effect waves-light" type="submit" name="action">Sign Up
                 <i class="material-icons right">send</i>
             </button>
             <router-link to="/login" class="waves-effect waves-teal btn-flat">Log In</router-link>
@@ -30,7 +30,6 @@
 <script>
 
     import {email, required, minLength} from 'vuelidate/lib/validators'
-    import codes from '../codes/index'
 
     export default {
         data() {
@@ -60,7 +59,7 @@
         },
         watch: {
             error(value) {
-                this.$alert(codes[value.code] || 'Не удалось войти в аккаунт. Попробуйте войти позже!')
+                this.$alert(value.code)
             }
         },
         methods: {
@@ -79,7 +78,7 @@
 
                 try {
                     await this.$store.dispatch('register', formData)
-                    this.$alert('Вы удачно зарегистрировались! Войдите в систему!')
+                    this.$alert('You were successfully registered! Now log in!')
                     this.$router.push('/login')
                 }
                 catch (e) {
