@@ -13,6 +13,10 @@
                     <a href="#modal" class="sidebar-menu__btn btn-floating btn-large waves-effect white-text modal-trigger" @click.prevent="openModal"><i class="material-icons">add</i></a>
                     <span>New task</span>
                 </li>
+                <li class="sidebar-menu__item">
+                    <a href="#" class="sidebar-menu__btn btn-floating btn-large waves-effect white-text" @click.prevent="logout"><i class="material-icons">directions_walk</i></a>
+                    <span>Logout</span>
+                </li>
             </ul>
         </div>
     </div>
@@ -29,13 +33,11 @@
         methods: {
             openModal() {
                 window.modal.open();
-<<<<<<< HEAD
-=======
             },
             logout() {
                 this.$store.dispatch('logout')
+                this.$alert('You are logged out')
                 this.$router.push('/login?message=logout')
->>>>>>> parent of 1ee1e2c... auth
             }
         }
     }

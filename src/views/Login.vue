@@ -17,7 +17,7 @@
             <button class="btn waves-effect waves-light" type="submit" name="action">Login
                 <i class="material-icons right">send</i>
             </button>
-            <router-link to="/register" class="waves-effect waves-teal btn-flat">Sign In</router-link>
+            <router-link to="/register" class="waves-effect waves-teal btn-flat">Sign Up</router-link>
         </form>
     </div>
 </template>
@@ -25,7 +25,6 @@
 <script>
 
     import {email, required, minLength} from 'vuelidate/lib/validators'
-    import codes from '../codes/index'
 
     export default {
         data() {
@@ -51,7 +50,7 @@
         },
         watch: {
           error(value) {
-              this.$alert(codes[value.code] || 'Не удалось войти в аккаунт. Попробуйте войти позже!')
+              this.$alert(value.code)
           }
         },
         methods: {
@@ -69,17 +68,12 @@
 
                 try {
                     await this.$store.dispatch('login', formData)
-                    this.$alert('Добро пожаловать!')
+                    this.$alert('Welcome!')
                     this.$router.push('/')
                 }
                 catch (e) {
                     throw new Error(e)
                 }
-            }
-        },
-        mounted() {
-            if(codes[this.$route.query.message]) {
-                this.$alert(codes[this.$route.query.message])
             }
         }
     }

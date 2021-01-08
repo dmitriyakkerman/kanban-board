@@ -3,3 +3,19 @@
   font-size: 14px;
   font-weight: 700;
 }
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+
+  .input-field {
+    width: 100%;
+  }
+
+  button {
+    background: #a696ff;
+  }
+}
