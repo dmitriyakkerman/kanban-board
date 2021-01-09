@@ -14,7 +14,7 @@
                     <span>New task</span>
                 </li>
                 <li class="sidebar-menu__item">
-                    <a href="#" class="sidebar-menu__btn btn-floating btn-large waves-effect white-text" @click.prevent="logout"><i class="material-icons">directions_walk</i></a>
+                    <button class="sidebar-menu__btn btn-floating btn-large waves-effect white-text" @click="logout"><i class="material-icons">directions_walk</i></button>
                     <span>Logout</span>
                 </li>
             </ul>
@@ -25,6 +25,8 @@
 <script>
 
     import {mapGetters} from 'vuex'
+    import VueRouter from 'vue-router'
+    const { isNavigationFailure, NavigationFailureType } = VueRouter
 
     export default {
         computed: {
@@ -35,9 +37,21 @@
                 window.modal.open();
             },
             logout() {
-                this.$store.dispatch('logout')
-                this.$alert('You are logged out')
-                this.$router.push('/login?message=logout')
+                let that = this;
+                try {
+                    this.$store.dispatch('logout')
+                    this.$alert('You are logged out')
+                    this.$router
+                        .push('/login')
+                        .catch(failure => {
+                            if (isNavigationFailure(failure, NavigationFailureType.redirected)) {
+                                that.$router.push(failure.to.path)
+                            }
+                        })
+                }
+                catch (e) {
+                    throw new Error(e)
+                }
             }
         }
     }

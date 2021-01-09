@@ -15,14 +15,16 @@ const router = new VueRouter(({
             path: '/login',
             component: Login,
             meta: {
-                layout: 'Auth'
+                layout: 'Auth',
+                guest: true
             }
         },
         {
             path: '/register',
             component: Register,
             meta: {
-                layout: 'Auth'
+                layout: 'Auth',
+                guest: true
             }
         },
         {
@@ -75,7 +77,23 @@ router.beforeEach((to, from, next) => {
     if(to.matched.some(record => record.meta.auth)) {
         if(!currentUser) {
             next({
-                path: '/login?message=login'
+                path: '/login',
+                query: {
+                    redirect: to.fullPath
+                }
+            })
+        }
+        else {
+            next()
+        }
+    }
+    else if(to.matched.some(record => record.meta.guest)) {
+        if(currentUser) {
+            next({
+                path: '/',
+                query: {
+                    redirect: to.fullPath
+                }
             })
         }
         else {
@@ -83,7 +101,7 @@ router.beforeEach((to, from, next) => {
         }
     }
     else {
-        next()
+        next();
     }
 })
 
