@@ -1,6 +1,5 @@
 <template>
     <div class="dashboard">
-        <Search v-if="$router.currentRoute.path !== '/stats'"></Search>
         <transition name="fade">
             <router-view></router-view>
         </transition>
@@ -12,13 +11,10 @@
 
 <script>
 
-import Search from "./Search";
-
 import {mapGetters} from 'vuex'
 
 export default {
     components: {
-        Search,
         DashboardLoader: () => import('../../components/Loaders/DashboardLoader.vue')
     },
     computed: {

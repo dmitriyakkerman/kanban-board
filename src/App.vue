@@ -8,7 +8,6 @@
 
 <script>
 
-    import Auth from "./layouts/Auth";
     import Main from "./layouts/Main";
     import Preloader from "./components/Loaders/Preloader";
     import GitHubCorner from "./components/GitHubCorner/GitHubCorner";
@@ -16,7 +15,6 @@
 export default {
     name: 'App',
     components: {
-        Auth,
         Main,
         Preloader,
         GitHubCorner
