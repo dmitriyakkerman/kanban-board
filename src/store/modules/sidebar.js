@@ -11,9 +11,6 @@ export default {
                 name: 'In Progress', url: '/in-progress', icon: 'play_circle_outline'
             },
             {
-                name: 'Testing', url: '/testing', icon: 'settings'
-            },
-            {
                 name: 'Done', url: '/done', icon: 'done'
             },
             {

@@ -40,14 +40,13 @@
             tasksInfo: Object
         },
         computed: {
-            ...mapGetters(['todoTasks', 'inProgressTasks', 'testingTasks', 'doneTasks'])
+            ...mapGetters(['todoTasks', 'inProgressTasks', 'doneTasks'])
         },
         methods: {
             ...mapMutations(['updateTasks', 'deleteTask']),
             onUpdate(){
                 this.updateTasks(this.todoTasks);
                 this.updateTasks(this.inProgressTasks);
-                this.updateTasks(this.testingTasks);
                 this.updateTasks(this.doneTasks);
             },
             removeTask(id, title) {

@@ -29,13 +29,6 @@ const router = new VueRouter(({
             }
         },
         {
-            path: '/testing',
-            component: () => import('../views/Testing.vue'),
-            meta: {
-                auth: true
-            }
-        },
-        {
             path: '/done',
             component: () => import('../views/Done.vue'),
             meta: {

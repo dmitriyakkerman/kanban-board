@@ -4,7 +4,6 @@
             <div v-if="!dashboardToggling" class="dashboard__inner" :class="dashboardState">
                 <Board :filteredTasks="filteredTasks(todoTasks.tasks)" :tasksInfo="todoTasks"></Board>
                 <Board :filteredTasks="filteredTasks(inProgressTasks.tasks)" :tasksInfo="inProgressTasks"></Board>
-                <Board :filteredTasks="filteredTasks(testingTasks.tasks)" :tasksInfo="testingTasks"></Board>
                 <Board :filteredTasks="filteredTasks(doneTasks.tasks)" :tasksInfo="doneTasks"></Board>
             </div>
         </transition>
@@ -26,7 +25,7 @@
             Viewbar
         },
         computed: {
-            ...mapGetters(['dashboardState', 'dashboardToggling', 'taskToSearch', 'todoTasks', 'doneTasks', 'inProgressTasks', 'testingTasks']),
+            ...mapGetters(['dashboardState', 'dashboardToggling', 'taskToSearch', 'todoTasks', 'doneTasks', 'inProgressTasks']),
         },
         methods: {
             filteredTasks
