@@ -13,14 +13,15 @@ export default {
     },
     actions: {
         toggleDashboardType({commit}, dashboardType) {
-            commit('closeBoards')
+            commit('closeBoards');
+
             setTimeout(() => {
                 commit('toggleDashboardType', dashboardType)
-            }, 500)
+            }, 500);
 
             setTimeout(() => {
                 commit('openBoards')
-            }, 500)
+            }, 500);
         }
     },
     mutations: {

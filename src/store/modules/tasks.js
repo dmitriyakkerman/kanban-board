@@ -19,13 +19,6 @@ export default {
                 classModifier: 'in-progress'
             }
         },
-        testingTasks: {
-            tasks: JSON.parse(localStorage.getItem('testingTasks')) || [],
-            info: {
-                title: 'Testing',
-                classModifier: 'testing'
-            }
-        },
         doneTasks: {
             tasks: JSON.parse(localStorage.getItem('doneTasks')) || [],
             info: {
@@ -41,9 +34,6 @@ export default {
         },
         inProgressTasks(state) {
             return state.inProgressTasks
-        },
-        testingTasks(state) {
-            return state.testingTasks
         },
         doneTasks(state) {
             return state.doneTasks
@@ -64,10 +54,6 @@ export default {
             if(tasks.info.title === 'In Progress') {
                 state.inProgressTasks.tasks = tasks.tasks;
                 localStorage.setItem('inProgressTasks', JSON.stringify(state.inProgressTasks.tasks))
-            }
-            if(tasks.info.title === 'Testing') {
-                state.testingTasks.tasks = tasks.tasks;
-                localStorage.setItem('testingTasks', JSON.stringify(state.testingTasks.tasks))
             }
             if(tasks.info.title === 'Done') {
                 state.doneTasks.tasks = tasks.tasks;
@@ -90,12 +76,6 @@ export default {
                     return task.id !== id;
                 });
                 localStorage.setItem('inProgressTasks', JSON.stringify(state.inProgressTasks.tasks))
-            }
-            if(title === 'Testing') {
-                state.testingTasks.tasks = state.testingTasks.tasks.filter(function (task) {
-                    return task.id !== id;
-                });
-                localStorage.setItem('testingTasks', JSON.stringify(state.testingTasks.tasks))
             }
             if(title === 'Done') {
                 state.doneTasks.tasks = state.doneTasks.tasks.filter(function (task) {
